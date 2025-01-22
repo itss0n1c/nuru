@@ -3,15 +3,17 @@
 		"declaration": true,
 		"forceConsistentCasingInFileNames": true,
 		"lib": ["ESNext"],
-		"module": "CommonJS",
-		"moduleResolution": "node",
+		"types": ["bun"],
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
 		"outDir": "dist/",
 		"resolveJsonModule": true,
-		"rootDir": "src/",
-		"target": "ES2022",
+		"rootDir": "lib/",
+		"target": "ESNext",
 		"esModuleInterop": true,
 		"strict": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"emitDeclarationOnly": true
 	},
-	"include": ["src/*"]
+	"exclude": ["build.ts", "dist/", "node_modules"]
 }

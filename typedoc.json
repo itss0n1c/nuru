@@ -1,0 +1,27 @@
+{
+	"entryPoints": ["lib/index.ts"],
+	"out": "docs",
+	"plugin": ["typedoc-github-theme"],
+	"excludeExternals": true,
+	"externalSymbolLinkMappings": {
+		"bun-types": {
+			"*": "https://bun.sh/docs"
+		},
+		"typescript": {
+			"Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+			"Error": "https://developer.mozilla.org/en-US/dozcs/Web/JavaScript/Reference/Global_Objects/Error",
+			"Partial": "https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype"
+		},
+		"arg": {
+			"*": "https://www.npmjs.com/package/arg"
+		},
+		"chalk": {
+			"*": "https://www.npmjs.com/package/chalk"
+		}
+	},
+	"navigationLinks": {
+		"GitHub": "https://github.com/itss0n1c/nuru",
+		"S0n1c": "https://s0n1c.ca"
+	},
+	"sort": ["documents-first", "kind"]
+}

@@ -1,27 +1,39 @@
 {
 	"name": "nuru",
-	"version": "3.1.0",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"license": "MIT",
+	"version": "4.0.0",
+	"description": "A library for quick CLI development in TypeScript.",
+	"license": "GPL-3.0-only",
+	"type": "module",
+	"files": ["dist"],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"*": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		}
+	},
 	"scripts": {
-		"build": "tsc -p .",
-		"dev": "vite-node ./tests/index.ts --"
+		"dev": "bun ./lib/tests/index.ts",
+		"build:lib": "bun run build.ts",
+		"build:docs": "typedoc --options typedoc.json",
+		"build": "bun build:lib && bun build:docs"
 	},
 	"devDependencies": {
-		"@types/node": "^18.7.23",
-		"@typescript-eslint/eslint-plugin": "^5.38.1",
-		"@typescript-eslint/parser": "^5.38.1",
-		"eslint": "^8.24.0",
-		"nodemon": "^2.0.20",
-		"typescript": "^4.8.4",
-		"vite-node": "^0.23.4"
+		"@biomejs/biome": "1.9.4",
+		"@types/bun": "1.1.18",
+		"typedoc-github-theme": "0.2.1"
 	},
 	"dependencies": {
-		"arg": "^5.0.2",
-		"chalk": "^4"
+		"arg": "5.0.2",
+		"chalk": "5.4.1"
 	},
-	"repository": "git@github.com:itss0n1c/nuru.git",
-	"author": "S0n1c <itss0n1cdev@gmail.com>",
-	"packageManager": "yarn@3.2.2"
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/itss0n1c/nuru.git"
+	},
+	"bugs": {
+		"url": "https://github.com/itss0n1c/nuru/issues"
+	},
+	"homepage": "https://s0n1c.ca/nuru"
 }
