@@ -2,7 +2,7 @@
 	"name": "nuru",
 	"description": "A library for quick CLI development in TypeScript.",
 	"author": "S0n1c",
-	"version": "4.0.2",
+	"version": "4.0.3",
 	"license": "GPL-3.0-only",
 	"type": "module",
 	"main": "./dist/index.js",

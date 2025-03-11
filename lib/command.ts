@@ -1,6 +1,10 @@
 import type { Nuru } from './index.js';
 
-export type CommandResponse<T = Nuru> = (client: T, args: string[]) => Promise<string> | string | undefined;
+export type Awaitable<T> = T | Promise<T>;
+
+// biome-ignore lint/suspicious/noConfusingVoidType: Valid use case
+export type CommandResponseReturnType = Awaitable<string | void>;
+export type CommandResponse<T = Nuru> = (client: T, args: string[]) => CommandResponseReturnType;
 
 export interface CmdInfo {
 	name: string;
@@ -22,7 +26,7 @@ export class Command<T = Nuru> {
 		return this;
 	}
 
-	async handle(client: T, args: string[]): Promise<string | undefined> {
+	async handle(client: T, args: string[]): Promise<CommandResponseReturnType> {
 		if (!this._response) throw new Error('No response function provided');
 		return this._response(client, args);
 	}

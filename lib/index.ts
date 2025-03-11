@@ -2,7 +2,7 @@ import arg, { ArgError, type Result } from 'arg';
 import chalk, { type ChalkInstance } from 'chalk';
 import { version } from '../package.json';
 import { help_cmd } from './cmds/index.js';
-import type { Command } from './command.js';
+import type { Command, CommandResponseReturnType } from './command.js';
 
 export interface NuruOptions {
 	/** The name of the CLI */
@@ -113,7 +113,7 @@ export class Nuru {
 		const args = [...definedArgs, ...extraArgs];
 		const cmd = this._find_cmd(cmd_name);
 		if (cmd) {
-			let res: string | undefined;
+			let res: CommandResponseReturnType;
 			try {
 				res = await cmd.handle(this, args);
 			} catch (e) {
